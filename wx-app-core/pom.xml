@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- PARENT POM -->
+	<parent>
+	  <groupId>cn.ucaner</groupId>
+	  <artifactId>wx-app</artifactId>
+	  <version>1.0.1-TINA</version>
+	</parent>
+	
+	<!-- PROJECT PROFILE -->
+	<artifactId>wx-app-core</artifactId>
+	<packaging>jar</packaging>
+
+	<!-- PROJECT DESCRBE -->
+	<name>wx-app-core</name>
+	<url>wx-app core 公共核心代码抽取 子模块可以依赖 解耦开发</url>
+
+	<properties>
+	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	
+	<!--  DEPENDENCY  -->
+	<dependencies>
+	
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+        <!-- base 加入分页逻辑  -->
+        <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+		</dependency>
+		
+		<!-- mybatis-generator-core  扩展自动生成器 自动添加注释等 -->
+		<dependency>
+	        <groupId>org.mybatis.generator</groupId>
+	        <artifactId>mybatis-generator-core</artifactId>
+	    </dependency>
+		
+		<!-- JSR310规范 + 校验 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        
+        <!-- spring-jdbc  just for dataSource 可切换 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		</dependency>
+		
+		<!-- commons-lang3 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		</dependency>
+	
+		<!-- fastjson -->
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>${fastjson.version}</version>
+		</dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.qcloudsms</groupId>
+            <artifactId>qcloudsms</artifactId>
+            <version>1.0.5</version>
+        </dependency>
+        
+      <!--   <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-miniapp</artifactId>
+        </dependency> -->
+        
+        <!-- configuration-processor 配置动态提示 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+    </dependencies>
+
+	<!-- BUILD  PROJECT -->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
+    
+</project>

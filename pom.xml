@@ -1,0 +1,150 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- POM  -->
+	<groupId>cn.ucaner</groupId>
+	<artifactId>wx-app</artifactId>
+	<version>1.0.1-TINA</version>
+	<packaging>pom</packaging>
+	
+	<!-- PROJECT DESCRIBE  -->
+	<name>wx-apps</name>
+	<description>JasonInternational CO,.LTD - https://github.com/Jasonandy/springboot-wx.git</description>
+	
+	
+	<!-- SPRINGBOOT - PARENT -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!-- <version>1.5.12.RELEASE</version> --><!-- 2.0+ -->
+        <version>2.0.0.RELEASE</version>
+        <relativePath/>
+    </parent>
+    
+    <!-- POM 属性值配置 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.test.skip>true</maven.test.skip>
+        
+        <mysql.connector.java.version>5.1.46</mysql.connector.java.version>
+        <jackson.datatype.version>2.9.5</jackson.datatype.version>
+        <mybatis.springboot.starter.version>1.3.2</mybatis.springboot.starter.version>
+        <pagehelper-spring-boot-starter>1.2.5</pagehelper-spring-boot-starter>
+        <druid-spring-boot-starter>1.1.9</druid-spring-boot-starter>
+        <springboot-version>2.0.0.RELEASE</springboot-version>
+        <!-- 第三方微信支付相关 -->
+        <weixin-java-pay>3.0.0</weixin-java-pay>
+        <weixin-java-miniapp>3.0.0</weixin-java-miniapp>
+        <!-- mapper生成器 -->
+        <mybatis-generator.version>1.3.5</mybatis-generator.version>
+        <fastjson.version>1.2.47</fastjson.version>
+    </properties>
+    
+    
+     <!-- 依赖管理  -->
+    <dependencyManagement>
+    
+        <dependencies>
+        
+        	<!-- wx-apps-core -->
+        	<dependency>
+                <groupId>cn.ucaner</groupId>
+                <artifactId>wx-apps-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>   
+            
+            <!-- wx-apps-service  -->
+            <dependency>
+	            <groupId>cn.ucaner</groupId>
+	            <artifactId>wx-apps-service</artifactId>
+	            <version>${project.version}</version>
+        	</dependency> 
+        	
+        	<!-- wx-apps-gateway -->
+        	<dependency>
+	            <groupId>cn.ucaner</groupId>
+	            <artifactId>wx-apps-gateway</artifactId>
+	            <version>${project.version}</version>
+        	</dependency> 
+			
+			
+			<!--  jackson-datatype -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>${jackson.datatype.version}</version>
+            </dependency>
+
+            <!-- Spring Boot Mybatis 依赖 -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.springboot.starter.version}</version>
+            </dependency>
+
+            <!-- Spring Boot pagehelper 依赖 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-spring-boot-starter}</version>
+            </dependency>
+            
+            <!-- mybatis-generator-core  -->
+             <dependency>
+		        <groupId>org.mybatis.generator</groupId>
+		        <artifactId>mybatis-generator-core</artifactId>
+		        <version>${mybatis-generator.version}</version>
+		    </dependency>
+            
+
+            <!-- MySQL 连接驱动依赖 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.java.version}</version>
+            </dependency>
+
+			<!-- druid-spring  -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter}</version>
+            </dependency>
+
+			<!-- pay  
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-pay</artifactId>
+                <version>${weixin-java-pay}</version>
+            </dependency> -->
+
+			<!--miniapp 
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-miniapp</artifactId>
+                <version>${weixin-java-miniapp}</version>
+            </dependency>
+             -->
+             
+        </dependencies>
+    </dependencyManagement>
+    
+    
+    <!-- 公共相关依赖 -->
+	<dependencies>
+	   <!-- 热部署模块 -->
+	   <dependency>
+	       <groupId>org.springframework.boot</groupId>
+	       <artifactId>spring-boot-devtools</artifactId>
+	       <optional>true</optional>
+	   </dependency>
+	   <!-- 测试模块 -->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-test</artifactId>
+	        <scope>test</scope>
+	    </dependency>
+	</dependencies>
+	
+</project>

@@ -1,0 +1,38 @@
+# 邮件通知配置,邮箱一般用于接收业务通知例如收到新的订单，sendto 定义邮件接收者，通常为商城运营人员
+MailNotifyConfig:
+  enable: true
+  host: smtp.163.com
+  username: jason2andy@163.com
+  password: 163mail
+  sendto: 603043194@qq.com
+  #sendto: 1239042292@qq.com
+
+# 短消息模版通知配置
+# 短信息用于通知客户，例如发货短信通知，注意配置格式；template-name，template-templateId 请参考 ConfigUtil 内枚举值
+SMSNotifyConfig:
+  enable: false
+  appid: 1234
+  appkey: 1234
+  sign: 1
+  template:
+    - name: paySucceed
+      templateId: 156349
+    - name: captcha
+      templateId: 156433
+
+# 微信模版通知配置
+# 微信模版用于通知客户或者运营者，注意配置格式；template-name，template-templateId 请参考 ConfigUtil 内枚举值
+WXNotifyConfig:
+  enable: false
+  template:
+    - name: paySucceed
+      templateId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    - name: captcha
+      templateId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+# 发送线程池配置
+NotifyPoolConfig:
+  corePoolSize: 5
+  maxPoolSize: 100
+  queueCapacity: 50
