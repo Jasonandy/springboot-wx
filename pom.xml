@@ -147,4 +147,8 @@
 	    </dependency>
 	</dependencies>
 	
+	<modules>
+		<module>wx-app-gateway</module>
+		<module>wx-app-service</module>
+	</modules>
 </project>

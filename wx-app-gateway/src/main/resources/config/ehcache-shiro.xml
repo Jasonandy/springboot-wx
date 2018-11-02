@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache name="es">
+
+	<!-- 指定一个文件目录，当EhCache把数据写到硬盘上时，将把数据写到这个文件目录下  -->
+    <diskStore path="java.io.tmpdir"/>
+
+    <!-- 登录记录缓存 锁定10分钟  5次  -->
+    <!-- name 缓存名称,cache的唯一标识(ehcache会把这个cache放到HashMap里)。 -->
+    <!-- maxEntriesLocalHeap 磁盘缓存中最多可以存放的元素数量,0表示无穷大。  -->
+    <!-- eternal 缓存中对象是否永久有效,即是否永驻内存,true时将忽略timeToIdleSeconds和timeToLiveSeconds -->
+    <!-- timeToIdleSeconds 缓存数据在失效前的允许闲置时间(单位:秒),仅当eternal=false时使用,默认值是0表示可闲置时间无穷大,
+      	  此为可选属性即访问这个cache中元素的最大间隔时间,若超过这个时间没有访问此Cache中的某个元素,那么此元素将被从Cache中清除。  -->
+    <!-- timeToLiveSeconds 缓存数据在失效前的允许存活时间(单位:秒),仅当eternal=false时使用,默认值是0表示可存活时间无穷大，
+    	  即Cache中的某元素从创建到清楚的生存时间,也就是说从创建开始计时,当超过这个时间时,此元素将从Cache中清除。 -->
+    <!-- overflowToDisk 内存不足时,是否启用磁盘缓存(即内存中对象数量达到maxElementsInMemory时,Ehcache会将对象写到磁盘中)，
+       	  会根据标签中path值查找对应的属性值,写入磁盘的文件会放在path文件夹下,文件的名称是cache的名称,后缀名是data。 -->
+       	  
+    <!--  apiCallNumsCache api的调用次数  -->
+    <cache name="apiCallNumsCache"  	
+           maxEntriesLocalHeap="2000" 	
+           eternal="false"				
+           timeToIdleSeconds="3600"		
+           timeToLiveSeconds="0"		
+           overflowToDisk="false"		
+           statistics="true">
+    </cache>
+
+	<!-- api jwt -->
+    <cache name="authApiCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+	<!-- authenticationCache  -->
+    <cache name="authenticationCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+	<!--shiro-activeSessionCache   -->
+    <cache name="shiro-activeSessionCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+</ehcache>

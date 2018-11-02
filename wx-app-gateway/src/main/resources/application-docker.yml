@@ -1,0 +1,7 @@
+spring:
+  datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://${MYSQL_HOST}:3306/${MYSQL_DATABASE}?useUnicode=true&amp;characterEncoding=utf-8
+        username: ${MYSQL_USERNAME}
+        password: ${MYSQL_PASSWORD}
+        type: com.alibaba.druid.pool.DruidDataSource
