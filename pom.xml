@@ -46,25 +46,26 @@
     <dependencyManagement>
     
         <dependencies>
-        
-        	<!-- wx-apps-core -->
+        	
+        	<!-- 版本依赖管理 start -->
+        	<!-- wx-app-core -->
         	<dependency>
                 <groupId>cn.ucaner</groupId>
-                <artifactId>wx-apps-core</artifactId>
+                <artifactId>wx-app-core</artifactId>
                 <version>${project.version}</version>
             </dependency>   
             
-            <!-- wx-apps-service  -->
+            <!-- wx-app-service  -->
             <dependency>
 	            <groupId>cn.ucaner</groupId>
-	            <artifactId>wx-apps-service</artifactId>
+	            <artifactId>wx-app-service</artifactId>
 	            <version>${project.version}</version>
         	</dependency> 
         	
-        	<!-- wx-apps-gateway -->
+        	<!-- wx-app-gateway -->
         	<dependency>
 	            <groupId>cn.ucaner</groupId>
-	            <artifactId>wx-apps-gateway</artifactId>
+	            <artifactId>wx-app-gateway</artifactId>
 	            <version>${project.version}</version>
         	</dependency> 
 			
@@ -150,5 +151,6 @@
 	<modules>
 		<module>wx-app-gateway</module>
 		<module>wx-app-service</module>
+		<module>wx-app-web-boss</module>
 	</modules>
 </project>

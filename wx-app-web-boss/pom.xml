@@ -1,0 +1,164 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- parent -->
+	<parent>
+	  <groupId>cn.ucaner</groupId>
+	  <artifactId>wx-app</artifactId>
+	  <version>1.0.1-TINA</version>
+	</parent>
+	
+	<!-- artifactId  -->
+	<artifactId>wx-app-web-boss</artifactId>
+	<name>wx-app-web-boss</name>
+	<description>商户号管理后台</description>
+	
+	<!-- 项目属性配置-->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.directory>target</project.build.directory>
+        <apache.shiro.version>1.2.5</apache.shiro.version>
+        <shiro.spring.version>1.4.0</shiro.spring.version>
+		<java.version>1.8</java.version>
+	</properties>
+	
+	<!-- 依赖管理 -->
+	<dependencies>
+	
+		<!-- wx-app-service -->
+		<dependency>
+		    <groupId>cn.ucaner</groupId>
+		    <artifactId>wx-app-service</artifactId>
+		    <!-- <version>1.0.1-TINA</version> -->
+	    </dependency>
+	    
+	    <!-- web -->
+	    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<!-- freemrak  -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+
+		<!--servlet-api -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>servlet-api</artifactId>
+		    <version>2.5</version>
+		    <scope>provided</scope>
+		</dependency>
+		  
+		<!-- Shiro  相关依赖  -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>${apache.shiro.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${apache.shiro.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${apache.shiro.version}</version>
+		</dependency>
+		
+		 <!--
+	           包含支持UI模版（Velocity，FreeMarker，JasperReports），
+	           邮件服务，
+	           脚本服务(JRuby)，
+	           缓存Cache（EHCache），
+	           任务计划Scheduling（uartz）。
+        -->
+       <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+        </dependency>
+        
+        <dependency>
+        	<groupId>net.sf.ehcache</groupId>
+	      	<artifactId>ehcache</artifactId>
+		</dependency>  
+		<!-- Shiro end  -->
+		
+	</dependencies>
+	
+	<!-- BUILD PROJECT -->
+    <build>
+		<!-- PACKAGE SOURCE LOCATION -->
+        <resources>
+            <resource>
+            	<directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+	                <includes>
+	                    <include>**/*.properties</include>
+	                    <include>**/*.xml</include>
+	                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/webapp</directory>
+            </resource>
+        </resources>
+        
+        <!-- SpringBoot 打包插件  web[war]应用打包为exec.jar 加入application主线程的jar包 -->
+        <!-- Linux 启动 nohup java -jar xxx.exec.jar &  -->
+        <!-- 后期计划结合Jenkins SonarQube 实现持续化集成环境 + 代码质量检测 by WanGuo -->
+        <plugins>
+        
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>exec</classifier>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+			
+			<!-- docker-maven-plugin  -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <configuration>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+	
+</project>
