@@ -1,3 +1,12 @@
+/**
+ *<html>
+ *<body>
+ *	<P> Copyright  ● JasonInternational </p>
+ *  <p> All rights reserved.</p>
+ *  <p> Created by Jason see https://github.com/Jasonandy/springboot-wx </p>
+ *</body>
+ *</html>
+ */
 package cn.ucaner.wx.app.boss;
 
 import org.springframework.boot.SpringApplication;
@@ -17,7 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 * @version    V1.0
  */
 @SpringBootApplication(scanBasePackages={"cn.ucaner.wx.app.core","cn.ucaner.wx.app.service" ,"cn.ucaner.wx.app.gateway","cn.ucaner.wx.app.boss"})
-//@MapperScan({"com.wanguo.wx.service.*.dao"})
+//@MapperScan({"cn.ucaner.wx.app.service.*.dao"})
 @EnableTransactionManagement
 @EnableScheduling
 public class Application {

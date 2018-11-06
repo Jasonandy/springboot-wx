@@ -30,7 +30,6 @@
 		<dependency>
 		    <groupId>cn.ucaner</groupId>
 		    <artifactId>wx-app-service</artifactId>
-		    <!-- <version>1.0.1-TINA</version> -->
 	    </dependency>
 	    
 	    <!-- web -->

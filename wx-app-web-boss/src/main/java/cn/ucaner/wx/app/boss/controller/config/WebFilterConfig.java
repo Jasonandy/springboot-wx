@@ -1,3 +1,12 @@
+/**
+ *<html>
+ *<body>
+ *	<P> Copyright  ● JasonInternational </p>
+ *  <p> All rights reserved.</p>
+ *  <p> Created by Jason see https://github.com/Jasonandy/springboot-wx </p>
+ *</body>
+ *</html>
+ */
 package cn.ucaner.wx.app.boss.controller.config;
 
 import javax.servlet.Filter;
@@ -63,6 +72,7 @@ public class WebFilterConfig {
 	 * @return FilterRegistrationBean
 	 * @Autor: Jason
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Bean
 	public FilterRegistrationBean webXmlFilterRegister() {
 	    FilterRegistrationBean registration = new FilterRegistrationBean();

@@ -1,3 +1,12 @@
+/**
+ *<html>
+ *<body>
+ *	<P> Copyright  ● JasonInternational </p>
+ *  <p> All rights reserved.</p>
+ *  <p> Created by Jason see https://github.com/Jasonandy/springboot-wx </p>
+ *</body>
+ *</html>
+ */
 package cn.ucaner.wx.app.boss.permission.utils;
 
 import org.apache.shiro.crypto.RandomNumberGenerator;
@@ -26,10 +35,18 @@ public class PasswordHelper {
 
 	private static String algorithmName = "md5";
 
+	/**
+	 * hash次数
+	 */
 	private static String hashIteration = "2";
 
 	private static int hashIterations = Integer.valueOf(hashIteration);
 
+	/**
+	 * @Description: 加密操作
+	 * @param pmsOperator 
+	 * @Autor: Jason
+	 */
 	public static void encryptPassword(PmsOperator pmsOperator) {
 
 		pmsOperator.setsalt(randomNumberGenerator.nextBytes().toHex());
@@ -53,11 +70,11 @@ public class PasswordHelper {
 	
 	/**
 	 * @Description: Just for test
-	 * @Autor: wubin@wanguo.com
+	 * @Autor: jasonandy@hotmail.com
 	 */
 	public static void main(String[] args) {
 		PmsOperator pmsOperator = new  PmsOperator();
-		pmsOperator.setLoginName("wubin@wanguo.com");
+		pmsOperator.setLoginName("jasonandy@hotmail.com");
 		pmsOperator.setLoginPwd("123456");
 		encryptPassword(pmsOperator);
 		System.out.println(pmsOperator.getsalt());//盐
@@ -69,6 +86,6 @@ public class PasswordHelper {
 
 }
 //Outputs
-//aae4349c6d0608abd8743459e5a721c5
-//{"createTime":1532937035184,"credentialsSalt":"wubin@wanguo.comaae4349c6d0608abd8743459e5a721c5","loginName":"wubin@wanguo.com","loginPwd":"5ac0a041cedee117a6de7851b99810d8","version":0}
+//7e0a5a4b5298358a6bc79b50d56470ce
+//{"createTime":1541481056448,"credentialsSalt":"jasonandy@hotmail.com7e0a5a4b5298358a6bc79b50d56470ce","loginName":"jasonandy@hotmail.com","loginPwd":"302d2895a4578294a658a624822c51ad","version":0}
 //49f014d882bc391a0c9a36e35b3e17b1
