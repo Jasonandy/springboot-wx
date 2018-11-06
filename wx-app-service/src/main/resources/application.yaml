@@ -1,6 +1,7 @@
 ##################mybatis相关配置#################################
 mybatis:
   mapper-locations: classpath*:mapper/**.xml
+  #mybatis配置文件位置
   #config-location: classpath:config/setting/mybatis_config.xml
-  type-aliases-package: cn.ucaner.wx.app.service.*.dao
+  #type-aliases-package: cn.ucaner.wx.app.service.*.dao
 ##################mybatis相关配置##################################

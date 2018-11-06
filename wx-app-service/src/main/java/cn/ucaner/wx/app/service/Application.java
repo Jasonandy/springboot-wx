@@ -1,3 +1,12 @@
+/**
+ *<html>
+ *<body>
+ *	<P> Copyright  ● JasonInternational </p>
+ *  <p> All rights reserved.</p>
+ *  <p> Created by Jason see https://github.com/Jasonandy/springboot-wx </p>
+ *</body>
+ *</html>
+ */
 package cn.ucaner.wx.app.service;
 
 import org.springframework.boot.SpringApplication;
@@ -14,7 +23,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 * @Modify marker：   
 * @version    V1.0
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages={"mapper.*"})
 public class Application {
 
     public static void main(String[] args) {
