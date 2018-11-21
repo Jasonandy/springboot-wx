@@ -1,4 +1,13 @@
-package cn.ucaner.wx.app.core.config;
+
+/**
+ *<html>
+ *<body>
+ *	<P> Copyright  ● JasonInternational </p>
+ *  <p> All rights reserved.</p>
+ *  <p> Created by Jason see https://github.com/Jasonandy/springboot-wx </p>
+ *</body>
+ *</html>
+ */package cn.ucaner.wx.app.core.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.SerializationFeature;

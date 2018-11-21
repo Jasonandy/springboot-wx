@@ -40,7 +40,6 @@ public class JWTUtil {
 	 * @param username
 	 * @param secret   用户的密码
 	 * @return boolean 是否正确
-	 * @Autor: Wubin@wanguo.com
 	 */
     public static boolean verify(String token, String username, String secret) {
         try {
@@ -60,7 +59,7 @@ public class JWTUtil {
      * @Description: 获得token中的信息无需secret解密也能获得 
      * @param token  token中包含的用户名
      * @return String
-     * @Autor: Wubin@wanguo.com  -- 可以从JWT加密的信息里拿出AUTHOR_FLAG
+     * @Autor: 可以从JWT加密的信息里拿出AUTHOR_FLAG
      */
     public static String getUsername(String token) {
         try {
@@ -76,7 +75,6 @@ public class JWTUtil {
      * @param username  用户名
      * @param secret    用户的密码
      * @return String   加密的token
-     * @Autor: WuBin@wanguo.com
      */
     public static String sign(String username, String secret) {
         try {

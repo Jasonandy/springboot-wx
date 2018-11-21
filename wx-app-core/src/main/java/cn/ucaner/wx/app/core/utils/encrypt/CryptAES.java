@@ -1,3 +1,12 @@
+/**
+ *<html>
+ *<body>
+ *	<P> Copyright(c)  ● JasonInternational ◆ Jason <jasonandy@hotail.com></p>
+ *  <p> All rights reserved.</p>
+ *  <p> Created by Jason see https://github.com/Jasonandy/springboot-wx </p>
+ *</body>
+ *</html>
+ */
 package cn.ucaner.wx.app.core.utils.encrypt;
 
 import java.security.Key;

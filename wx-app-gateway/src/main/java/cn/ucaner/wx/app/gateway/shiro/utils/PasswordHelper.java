@@ -1,3 +1,12 @@
+/**
+ * <html>
+ * <body>
+ *  <P> Copyright JasonInternational</p>
+ *  <p> All rights reserved.</p>
+ *  <p> Created by Jason  https://github.com/Jasonandy/springboot-wx</p>
+ *  </body>
+ * </html>
+ */
 package cn.ucaner.wx.app.gateway.shiro.utils;
 
 import org.apache.shiro.crypto.RandomNumberGenerator;

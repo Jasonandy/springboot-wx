@@ -1,3 +1,12 @@
+/**
+ *<html>
+ *<body>
+ *	<P> Copyright(c)  ● JasonInternational ◆ Jason <jasonandy@hotail.com></p>
+ *  <p> All rights reserved.</p>
+ *  <p> Created by Jason see https://github.com/Jasonandy/springboot-wx </p>
+ *</body>
+ *</html>
+ */
 package cn.ucaner.wx.app.core.utils.encrypt;
 
 import java.math.BigInteger;
@@ -153,9 +162,9 @@ class MD5Utils {
 	//------------------------TEST---------------------------------------
 	public static void main(String[] args) {
 		try {
-			System.out.println(getMd5String16("wubin@wanguo.com"));
-			System.out.println(getMd5String24("wubin@wanguo.com"));
-			System.out.println(getMd5String32("wubin@wanguo.com"));
+			System.out.println(getMd5String16("jasonandy@hotmail.com"));
+			System.out.println(getMd5String24("jasonandy@hotmail.com"));
+			System.out.println(getMd5String32("jasonandy@hotmail.com"));
 			System.out.println(getMD5Pwd("passwd", "salt"));
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
@@ -164,9 +173,8 @@ class MD5Utils {
 }
 
 //Outputs 
-//0a96d2f4d41e23ad
-//15fd0a96d2f4d41e23ad5c35
-//e62615fd0a96d2f4d41e23ad5c35e518
-
-//passwd+salt
+//21e8bed1f925bcf0
+//9d6e21e8bed1f925bcf004f4
+//02cd9d6e21e8bed1f925bcf004f4959a
+//
 //31cfccc227c348c90eedb7a9a41b880f

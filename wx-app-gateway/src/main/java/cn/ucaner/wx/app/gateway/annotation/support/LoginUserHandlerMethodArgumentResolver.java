@@ -1,3 +1,12 @@
+/**
+ * <html>
+ * <body>
+ *  <P> Copyright JasonInternational</p>
+ *  <p> All rights reserved.</p>
+ *  <p> Created by Jason  https://github.com/Jasonandy/springboot-wx</p>
+ *  </body>
+ * </html>
+ */
 package cn.ucaner.wx.app.gateway.annotation.support;
 
 import org.springframework.core.MethodParameter;
@@ -27,7 +36,9 @@ public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgu
 	 */
     public static final String LOGIN_TOKEN_KEY = "loginToken";
     
-    
+    /**
+     * 对传入的参数进行处理
+     */
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
         return parameter.getParameterType().isAssignableFrom(String.class) && parameter.hasParameterAnnotation(LoginUser.class);
@@ -38,6 +49,6 @@ public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgu
 
     	//这里做是否登录的逻辑判断
     	
-        return "wubin@wanguo.com";
+        return "jasonandy@hotmail.com";
     }
 }

@@ -3,8 +3,7 @@
  * <body>
  *  <P> Copyright JasonInternational</p>
  *  <p> All rights reserved.</p>
- *  <p> Created on 2018年7月26日 下午5:06:36</p>
- *  <p> Created by Jason </p>
+ *  <p> Created by Jason  https://github.com/Jasonandy/springboot-wx</p>
  *  </body>
  * </html>
  */
