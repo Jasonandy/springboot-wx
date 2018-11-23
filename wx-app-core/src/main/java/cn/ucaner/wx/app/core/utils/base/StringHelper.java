@@ -1480,7 +1480,7 @@ public class StringHelper {
 	
 	/**
 	 * @Description: Just for test
-	 * @Autor: wubin@wanguo.com 
+	 * @Autor:jasonandy@hotmail.com
 	 */
 	public static void main(String[] args) {
 		

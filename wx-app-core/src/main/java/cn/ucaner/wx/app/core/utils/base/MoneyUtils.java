@@ -57,10 +57,6 @@ public class MoneyUtils {
 	 
 	 /**
 	  * 人民币转换为大写,格式为：x万x千x百x十x元x角x分
-	  * 
-	  * @autor:chenssy
-	  * @date:2014年8月7日
-	  *
 	  * @param numberOfMoney 传入的金额
 	  * @return
 	  */
@@ -160,9 +156,6 @@ public class MoneyUtils {
 	
 	/**
 	 * 格式化金额，显示为xxx万元，xxx百万,xxx亿
-	 * @autor:chenssy
-	 * @date:2014年8月7日
-	 *
 	 * @param money 
 	 * 				待处理的金额
 	 * @param scale  
@@ -299,11 +292,14 @@ public class MoneyUtils {
 	
 	/**
 	 * @Description: Test
-	 * @Autor: wubin@wanguo.com
+	 * @Autor: jasonandy@hotmail.com
 	 */
 	public static void main(String[] args) {
 		String number2cnMontray = number2CNMontray("1234567890");
+		String number2cnMontray2 = number2CNMontray("18688409475.1234567");
 		System.out.println(number2cnMontray);
+		System.out.println(number2cnMontray2);
 		//壹拾贰亿叁仟肆佰伍拾陆万柒仟捌佰玖拾元
+		//壹佰捌拾陆亿捌仟捌佰肆拾万零玖仟肆佰柒拾伍元壹角贰分
 	}
 }

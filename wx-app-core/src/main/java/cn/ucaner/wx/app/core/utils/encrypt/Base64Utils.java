@@ -22,6 +22,9 @@ package cn.ucaner.wx.app.core.utils.encrypt;
  */
 class Base64Utils {
 
+	/**
+	 *base64 编码字符 
+	 */
 	private static char[] base64EncodeChars = new char[] { 'A', 'B', 'C', 'D',
 			'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
 			'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd',
@@ -29,6 +32,9 @@ class Base64Utils {
 			'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3',
 			'4', '5', '6', '7', '8', '9', '+', '/' };
 
+	/**
+	 * base64 解码
+	 */
 	private static byte[] base64DecodeChars = new byte[] { -1, -1, -1, -1, -1,
 			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -78,8 +84,8 @@ class Base64Utils {
 
 	/**
 	 * Base64 解密
-	 * @param str
-	 * @return
+	 * @param str     字符串
+	 * @return byte[] 解码组
 	 * @throws Exception
 	 */
 	protected static byte[] decrypt(String str) throws Exception{
@@ -134,7 +140,7 @@ class Base64Utils {
     public static void main(String[] args) throws Exception {
     	System.out.println("jasonandy@hotmail.com".getBytes());
     	System.out.println(encrypt("jasonandy@hotmail.com".getBytes()));
-    	System.out.println(decrypt("amFzb25hbmR5QGhvdG1haWwuY29t"));
+    	System.out.println(decrypt(encrypt("jasonandy@hotmail.com".getBytes())));
 	}
 }
 

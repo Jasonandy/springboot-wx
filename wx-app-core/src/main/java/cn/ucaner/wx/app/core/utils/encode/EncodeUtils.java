@@ -37,6 +37,9 @@ public class EncodeUtils {
 	 */
 	private static final String DEFAULT_URL_ENCODING = "UTF-8";
 	
+	/**
+	 * base62[] 
+	 */
 	private static final char[] BASE62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
 
 	/**

@@ -166,4 +166,12 @@ public final class ValidateHelper {
 		else
 			return false;
 	}
+	
+	/**
+	 * @Description: Just for test
+	 * @Autor: Jason
+	 */
+	public static void main(String[] args) {
+		
+	}
 }

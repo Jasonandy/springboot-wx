@@ -1485,7 +1485,7 @@ public class DateHelper extends org.apache.commons.lang3.time.DateUtils {
 	
 	/**
 	 * @Description: Just for test
-	 * @Autor: wubin - wubin@wanguo.com
+	 * @Autor: wubin - jasonandy@hotmail.com
 	 */
 	public static void main(String[] args) {
 		System.out.println(getPreviousMonthLastDay()); 

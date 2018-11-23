@@ -42,12 +42,36 @@ public class CookieUtil {
         }
         response.addCookie(cookie);
     }
+    
+    /**
+     * @Description: 设置cookie
+     * @param response
+     * @param name
+     * @param value
+     * @param maxAge  最大存活时间
+     * @Autor: Jason
+     */
     public static void setCookie(HttpServletResponse response, String name, String value, int maxAge) {
         setCookie(response, name, value, "/", maxAge);
     }
+    
+    /**
+     * @Description: 设置cookie
+     * @param response
+     * @param name
+     * @param value 设置cookie值
+     * @Autor: Jason
+     */
     public static void setCookie(HttpServletResponse response, String name, String value) {
         setCookie(response, name, value, "/", 3600);
     }
+    
+    /**
+     * @Description: 设置cookie的名字
+     * @param response
+     * @param name 设置cookie的值
+     * @Autor: Jason
+     */
     public static void setCookie(HttpServletResponse response, String name) {
         setCookie(response, name, "", "/", 3600);
     }

@@ -9,12 +9,21 @@
  */
 package cn.ucaner.wx.app.core.utils.captcha;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
+
+import javax.imageio.ImageIO;
 
 /**
 * @Package：cn.ucaner.wx.app.core.utils.captcha   
@@ -29,30 +38,63 @@ import java.util.Random;
  */
 public class CaptchaUtil {
 	
-	// 图片的宽度。
+	/**
+	 * 图片的宽度-默认-defalut
+	 */
 	private int width = 160;
-	// 图片的高度。
+	
+	/**
+	 *  图片的高度 -默认  -defalut 
+	 */
 	private int height = 40;
-	// 验证码字符个数
+	
+	/**
+	 * 验证码字符个数- 默认
+	 */
 	private int codeCount = 4;
-	// 验证码干扰线数
+	
+	/**
+	 * 验证码干扰线数
+	 */
 	private int lineCount = 20;
-	// 验证码
+	
+	/**
+	 * 验证码
+	 */
 	private String code = null;
-	// 验证码图片Buffer
+	
+	/**
+	 * 验证码图片buffer 
+	 */
 	private BufferedImage buffImg = null;
+	
+	
 	Random random = new Random();
 
+	/**
+	* CaptchaUtil.创建默认的图片.
+	 */
 	public CaptchaUtil() {
 		creatImage();
 	}
-
+	
+	/**
+	* CaptchaUtil. 
+	* @param width   宽
+	* @param height  高
+	 */
 	public CaptchaUtil(int width, int height) {
 		this.width = width;
 		this.height = height;
 		creatImage();
 	}
 
+	/**
+	* CaptchaUtil.  
+	* @param width 宽
+	* @param height 高
+	* @param codeCount 字符串个数
+	 */
 	public CaptchaUtil(int width, int height, int codeCount) {
 		this.width = width;
 		this.height = height;
@@ -60,6 +102,13 @@ public class CaptchaUtil {
 		creatImage();
 	}
 
+	/**
+	* CaptchaUtil. 
+	* @param width 
+	* @param height
+	* @param codeCount
+	* @param lineCount   -  加干扰线
+	 */
 	public CaptchaUtil(int width, int height, int codeCount, int lineCount) {
 		this.width = width;
 		this.height = height;
@@ -68,10 +117,15 @@ public class CaptchaUtil {
 		creatImage();
 	}
 
-	// 生成图片
+	/**
+	 * @Description: 生成图片
+	 * @Autor: Jason
+	 */
 	private void creatImage() {
+		
 		// 字体的宽度
 		int fontWidth = width / codeCount;
+		
 		// 字体的高度
 		int fontHeight = height - 5;
 		int codeY = height - 8;
@@ -80,14 +134,17 @@ public class CaptchaUtil {
 		buffImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		Graphics g = buffImg.getGraphics();
 		//Graphics2D g = buffImg.createGraphics();
-		// 设置背景色
+		
+		/**
+		 *获取指定范围的随机颜色-随机码的背景色 
+		 */
 		g.setColor(getRandColor(200, 250));
 		g.fillRect(0, 0, width, height);
 
 
 		// 设置字体
-		//Font font1 = getFont(fontHeight);
-		Font font = new Font("Fixedsys", Font.BOLD, fontHeight);
+		Font font = getFont(fontHeight);
+		//Font font = new Font("Fixedsys", Font.BOLD, fontHeight);
 		g.setFont(font);
 
 		// 设置干扰线
@@ -122,7 +179,12 @@ public class CaptchaUtil {
 		}
 	}
 
-	// 得到随机字符
+	/**
+	 * @Description: 获取n长度的随机字符
+	 * @param n      字符串的长度
+	 * @return String
+	 * @Autor: Jason
+	 */
 	private String randomStr(int n) {
 		String str1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
 		String str2 = "";
@@ -135,7 +197,13 @@ public class CaptchaUtil {
 		return str2;
 	}
 
-	// 得到随机颜色
+	/**
+	 * @Description: 获取随机的颜色
+	 * @param fc
+	 * @param bc
+	 * @return Color
+	 * @Autor: Jason
+	 */
 	private Color getRandColor(int fc, int bc) {// 给定范围获得随机颜色
 		if (fc > 255) {
 			fc = 255;
@@ -150,9 +218,11 @@ public class CaptchaUtil {
 	}
 
 	/**
-	 * 产生随机字体
+	 * @Description:产生随机字体
+	 * @param size
+	 * @return Font
+	 * @Autor: Jason
 	 */
-	@SuppressWarnings("unused")
 	private Font getFont(int size) {
 		Random random = new Random();
 		Font[] font = new Font[5];
@@ -164,13 +234,29 @@ public class CaptchaUtil {
 		return font[random.nextInt(5)];
 	}
 
-	// 扭曲方法
+	/**
+	 * @Description: 扭曲方法
+	 * @param g
+	 * @param w1
+	 * @param h1
+	 * @param color void
+	 * @Autor: Jason
+	 */
 	@SuppressWarnings("unused")
 	private void shear(Graphics g, int w1, int h1, Color color) {
 		shearX(g, w1, h1, color);
 		shearY(g, w1, h1, color);
 	}
 
+	
+	/**
+	 * @Description: shearX 线条
+	 * @param g
+	 * @param w1
+	 * @param h1
+	 * @param color void
+	 * @Autor: Jason
+	 */
 	private void shearX(Graphics g, int w1, int h1, Color color) {
 
 		int period = random.nextInt(2);
@@ -193,6 +279,14 @@ public class CaptchaUtil {
 		}
 	}
 
+	/**
+	 * @Description: 线条y
+	 * @param g
+	 * @param w1
+	 * @param h1
+	 * @param color void
+	 * @Autor: Jason
+	 */
 	private void shearY(Graphics g, int w1, int h1, Color color) {
 
 		int period = random.nextInt(40) + 10; // 50;
@@ -214,25 +308,92 @@ public class CaptchaUtil {
 		}
 	}
 
+	
+	/**
+	 * @Description: 输入流数据
+	 * @param sos
+	 * @throws IOException void
+	 * @Autor: Jason
+	 */
 	public void write(OutputStream sos) throws IOException {
 		ImageIO.write(buffImg, "png", sos);
 		sos.close();
 	}
 
+	/**
+	 * @Description: 获取图片流
+	 * @return BufferedImage
+	 * @Autor: Jason
+	 */
 	public BufferedImage getBuffImg() {
 		return buffImg;
 	}
 
+	/**
+	 * @Description:获取小写code
+	 * @return String
+	 * @Autor: Jason
+	 */
 	public String getCode() {
 		return code.toLowerCase();
 	}
 	
 	/**
-	 * @Description: Just for test
-	 * @Autor: wubin@wanguo.com
+	 * @Description:    将生成的图片流写到指定的磁盘位置
+	 * @param file      file文件对象
+	 * @param path       输出的文件的路径
+	 * @param ext        拓展ext名   - “.png”
+	 * @Autor: Jason
 	 */
-	public static void main(String[] args) {
-		
+	public static void writeRandomCode(CaptchaUtil cu,File file,String path,String ext) {
+		OutputStream out = null ;
+		if (file == null) {
+			file = new File(path+ext);
+	     }
+		 try {
+			 out = new FileOutputStream(file);
+			 cu.write(out);
+			 out.close();
+		 } catch (FileNotFoundException e) {
+			//文件未找到异常
+			e.printStackTrace();
+		 } catch (IOException e) {
+			//io异常
+			e.printStackTrace();
+		 }   
+	}
+	
+	/**
+	 * @Description:获取日期格式
+	 * @return String
+	 * @Autor: Jason
+	 */
+	public static String getTimeNoFlag() {
+		Calendar calendar = Calendar.getInstance();
+		return formatDate(calendar.getTime(), "yyyy-MMdd-hhmm-ss");
+	}
+	
+	/**
+	 * @Description: 格式化时间
+	 * @param date
+	 * @param format
+	 * @return String
+	 * @Autor: Jason
+	 */
+	public static String formatDate(Date date, String format) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+		return dateFormat.format(date);
+	}
+	
+	/**
+	 * test 测试生产指定的随机的验证码图片 保存到指定的位置   - need fix  优化生成的文件的随机名称问题 
+	 * fix 优化并发问题
+	 * @Description: Just for test
+	 * @Autor: jasonandy@hotmail.com
+	 */
+	public static void main(String[] args) throws IOException {
+		CaptchaUtil cu = new CaptchaUtil(800,400,6,60);
+		 writeRandomCode(cu,null, "D:" + File.separator + getTimeNoFlag(),".png");
 	}
 
 }

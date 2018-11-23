@@ -28,7 +28,9 @@ import javax.crypto.spec.SecretKeySpec;
  */
 class AESUtils {
 	
-	/** 默认秘钥 100-42=58*/
+	/** 默认秘钥 100-42=58    加解密的密钥串  fix 
+	 * 后期优化为 fix 可以加载的密钥串 或者生成一个 根据一定的条件产生
+	 * */
 	protected static final String KEY = "NOPO3nzMD3dndwS0MccuMeXCHgVlGOoYyFwLdS24Im2e7YyhB0wrUsyYf0";
 	
     /**
@@ -53,15 +55,36 @@ class AESUtils {
         return base64Encode(aesEncryptToBytes(value, key));  
     }  
 	
+    /**
+     * @Description: base64Encode
+     * @param bytes
+     * @return String
+     * @Autor: Jason
+     */
     private static String base64Encode(byte[] bytes){  
         return Base64Utils.encrypt(bytes);  
     }  
       
+    /**
+     * @Description: base64Decode 
+     * @param base64Code
+     * @return
+     * @throws Exception byte[]
+     * @Autor: Jason
+     */
     @SuppressWarnings("static-access")
     private static byte[] base64Decode(String base64Code) throws Exception{  
         return base64Code == null ? null : new Base64Utils().decrypt(base64Code);  
     }  
       
+    /**
+     * @Description: aesEncryptToBytes 
+     * @param content
+     * @param encryptKey
+     * @return
+     * @throws Exception byte[]
+     * @Autor: Jason
+     */
     private static byte[] aesEncryptToBytes(String content, String encryptKey) throws Exception {  
         KeyGenerator kgen = KeyGenerator.getInstance("AES");  
         kgen.init(128, new SecureRandom(encryptKey.getBytes()));  
@@ -72,6 +95,14 @@ class AESUtils {
         return cipher.doFinal(content.getBytes("utf-8"));  
     }  
       
+    /**
+     * @Description: aesDecryptByBytes 
+     * @param encryptBytes
+     * @param decryptKey
+     * @return
+     * @throws Exception String
+     * @Autor: Jason
+     */
     private static String aesDecryptByBytes(byte[] encryptBytes, String decryptKey) throws Exception {  
         KeyGenerator kgen = KeyGenerator.getInstance("AES");  
         kgen.init(128, new SecureRandom(decryptKey.getBytes()));  

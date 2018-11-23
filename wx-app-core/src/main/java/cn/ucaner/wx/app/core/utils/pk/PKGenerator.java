@@ -67,7 +67,7 @@ public class PKGenerator {
 	 * @Description: 加码器 Base64
 	 * @param input
 	 * @return String
-	 * @Autor: wubin@wanguo.com
+	 * @Autor: jasonandy@hotmail.com
 	 */
 	public static String encodeBase62(byte[] input) {
 		char[] chars = new char[input.length];

@@ -1,4 +1,3 @@
-
 /**
  *<html>
  *<body>
@@ -7,7 +6,8 @@
  *  <p> Created by Jason see https://github.com/Jasonandy/springboot-wx </p>
  *</body>
  *</html>
- */package cn.ucaner.wx.app.core.constant;
+ */
+package cn.ucaner.wx.app.core.constant;
 
 /**
 * @Package：cn.ucaner.wx.app.core.constant   

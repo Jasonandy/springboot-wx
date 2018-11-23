@@ -27,8 +27,15 @@ import org.apache.commons.lang3.StringUtils;
 * @version    V1.0
  */
 class MD5Utils {
+	
+	/**
+	 * MD5_KEY 
+	 */
 	protected final static String MD5_KEY = "MD5";
 	
+	/**
+	 * SHA_KEY
+	 */
 	protected final static String SHA_KEY = "SHA1";
 	
 	/**
@@ -56,7 +63,7 @@ class MD5Utils {
 	/**
 	 * 字节数组转换为hex
 	 * @param byteArray
-	 * @return
+	 * @return String 
 	 */
 	private static String byteArrayToHex(byte[] byteArray) {
 
@@ -76,7 +83,7 @@ class MD5Utils {
 	/**
 	 * 获得16位的加密字符 
 	 * @param str
-	 * @return
+	 * @return 获得16位的加密字符 
 	 * @throws NoSuchAlgorithmException
 	 */
 	public static String getMd5String16(String str) throws NoSuchAlgorithmException {
@@ -86,8 +93,8 @@ class MD5Utils {
 
 	/**
 	 * 获得24位的MD5加密字符
-	 * @param str
-	 * @return
+	 * @param  str
+	 * @return String 获得24位的MD5加密字符
 	 * @throws NoSuchAlgorithmException
 	 */
 	public static String getMd5String24(String str) throws NoSuchAlgorithmException {
@@ -110,13 +117,12 @@ class MD5Utils {
 		StringBuffer buf = new StringBuffer();
 		for (int offset = 0; offset < b.length; offset++) {
 			i = b[offset];
-
 			if (i < 0)
 				i += 256;
 
 			if (i < 16)
 				buf.append("0");
-
+			
 			buf.append(Integer.toHexString(i));
 		}
 		return buf.toString();
@@ -159,6 +165,11 @@ class MD5Utils {
 		return result;
 	}
 
+	/**
+	 * @Description: 随机盐+账号 --> md5 匹配对照
+	 * @param args 
+	 * @Autor: Jason
+	 */
 	//------------------------TEST---------------------------------------
 	public static void main(String[] args) {
 		try {
@@ -166,6 +177,7 @@ class MD5Utils {
 			System.out.println(getMd5String24("jasonandy@hotmail.com"));
 			System.out.println(getMd5String32("jasonandy@hotmail.com"));
 			System.out.println(getMD5Pwd("passwd", "salt"));
+			System.out.println(getMD5Pwd("jasonandy@hotmail.com", "i'm salt"));
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
@@ -178,3 +190,5 @@ class MD5Utils {
 //02cd9d6e21e8bed1f925bcf004f4959a
 //
 //31cfccc227c348c90eedb7a9a41b880f
+
+//15347b14d877a6059ddfaa9616e233a4

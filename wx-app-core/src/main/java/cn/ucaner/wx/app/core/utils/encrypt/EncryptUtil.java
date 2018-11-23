@@ -30,6 +30,7 @@ import sun.misc.BASE64Encoder;
 * @Modify marker：   
 * @version    V1.0
  */
+@SuppressWarnings("restriction")
 public class EncryptUtil {
 
 	private static final Log loger  = LogFactory.getLog(EncryptUtil.class);
@@ -129,7 +130,7 @@ public class EncryptUtil {
 	 */
 	public static void main(String[] args) throws IOException {
 		String code = "jasonandy@hotmail.com";
-		String encode = encodeBase64String(code);
+		String encode = encodeBase64String(code);  //base64-加码
 		String decode = decodeBase64String(encode);
 		System.out.printf("encode: %s ,decode: %s %n",encode,decode);
 		System.out.printf("encodeMD5: %s %n",encodeMD5String(code));

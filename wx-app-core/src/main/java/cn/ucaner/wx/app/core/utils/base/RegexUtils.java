@@ -29,7 +29,7 @@ public class RegexUtils {
 	 * 判断字符串是否符合正则表达式
 	 * @param str
 	 * @param regex
-	 * @return
+	 * @return 判断字符串是否符合正则表达式
 	 */
 	public static boolean find(String str, String regex) {
 		Pattern p = Pattern.compile(regex);
@@ -40,8 +40,8 @@ public class RegexUtils {
 	
 	/**
 	 * 判断输入的字符串是否符合Email格式.
-	 * @param email
-	 * @return
+	 * @param   email
+	 * @return  判断输入的字符串是否符合Email格式
 	 */
 	public static boolean isEmail(String email) {
 		if (email == null || email.length() < 1 || email.length() > 256) {
@@ -53,8 +53,8 @@ public class RegexUtils {
 	
 	/**
 	 * 判断输入的字符串是否为纯汉字
-	 * @param value
-	 * @return
+	 * @param  value
+	 * @return 判断输入的字符串是否为纯汉字
 	 */
 	public static boolean isChinese(String value) {
 		Pattern pattern = Pattern.compile("[\u0391-\uFFE5]+$");
@@ -64,7 +64,7 @@ public class RegexUtils {
 	/**
 	 * 判断是否为浮点数，包括double和float
 	 * @param value
-	 * @return
+	 * @return 判断是否为浮点数
 	 */
 	public static boolean isDouble(String value) {
 		Pattern pattern = Pattern.compile("^[-\\+]?\\d+\\.\\d+$");
@@ -74,7 +74,7 @@ public class RegexUtils {
 	/**
 	 * 判断是否为整数
 	 * @param value
-	 * @return
+	 * @return boolean 判断是否为整数
 	 */
 	public static boolean isInteger(String value) {
 		Pattern pattern = Pattern.compile("^[-\\+]?[\\d]+$");

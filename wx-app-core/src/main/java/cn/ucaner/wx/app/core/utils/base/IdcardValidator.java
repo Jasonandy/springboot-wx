@@ -40,10 +40,6 @@ public class IdcardValidator {
 
 	/**
 	 * 验证身份证是否合法
-	 * 
-	 * @author : chenssy
-	 * @date : 2016年6月1日 下午12:30:03
-	 *
 	 * @param idcard
 	 * @return
 	 */
@@ -83,10 +79,6 @@ public class IdcardValidator {
 	 * <p>
 	 * 5.通过上面得知如果余数是2，就会在身份证的第18位数字上出现罗马数字的Ⅹ。如果余数是10，身份证的最后一位号码就是2。
 	 * </p>
-	 * 
-	 * @author : chenssy
-	 * @date : 2016年6月1日 下午12:31:10
-	 *
 	 * @param idcard
 	 * 					待验证的身份证
 	 * @return
@@ -250,13 +242,13 @@ public class IdcardValidator {
 	/**
 	 * @Description: Just for test
 	 * @param {@link http://www.creditsailing.com/HuaDangZiXun/653900.html}
-	 * @Autor: wubin@wanguo.com
+	 * @Autor: jasonandy@hotmail.com
 	 */
 	public static void main(String[] args) {
 		//360822198904022764
 		//360822198403133298
 		//360822199207227275
-		
-		
+		System.out.println(is18Idcard("360822199207227275"));
+		System.out.println(getUserSex("360822198403133298"));
 	}
 }
