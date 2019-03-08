@@ -46,6 +46,10 @@
 商户管理后台，加入Shiro控制权限细粒度，配置多个商户，进行增删改查等操作[可能考虑不做前后分离]
 做的话优先Vue-Admin等开源的后台管理模块整合
 
+> 5.wx-app-data
+
+数据模块 后面需要对数据进行分析 集成elasticSearch  kafka  zookeeper
+
 ## 3.Jenkins 环境集成 SonarQube 质量检测
 
 > 1.CentOS7 
@@ -244,7 +248,7 @@ vim nginx.confg
 
 + 后期可能会考虑到的
 + ElasticSearch //提供搜索 or 日志分析
-+ Kafaka // 消息队列 做后台的消息通知等 //回掉
++ Kafaka // 消息队列 做后台的消息通知等 // 回调
 + Dubbo  //服务拆分 先预留逻辑
 + Oauth2.0 Jwt 等  //鉴权相关
 
