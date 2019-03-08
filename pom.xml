@@ -152,5 +152,6 @@
 		<module>wx-app-gateway</module>
 		<module>wx-app-service</module>
 		<module>wx-app-web-boss</module>
-	</modules>
+        <module>wx-app-data</module>
+    </modules>
 </project>
