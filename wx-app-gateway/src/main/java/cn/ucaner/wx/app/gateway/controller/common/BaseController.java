@@ -42,9 +42,12 @@ import cn.ucaner.wx.app.core.utils.base.StringHelper;
 * @Modify marker：   
 * @version    V1.0
  */
+@SuppressWarnings("AlibabaCollectionInitShouldAssignCapacity")
 public abstract class BaseController {
 
-	
+	/**
+	 * 获取日志记录器 日志都统一使用的slf4j 比较好  有占位符比较好使用 节约内存
+	 */
     private static final Log log = LogFactory.getLog(BaseController.class);
     
     /**
@@ -110,11 +113,11 @@ public abstract class BaseController {
 	
 	/**
 	 * 获取请求中的参数值，如果参数值为null刚转为空字符串""
-	 * 
+	 *  阿里代码规约里面有提示  所以还是估计一个值放里面算了
 	 * @return
 	 */
-	public Map<String, Object> getParamMap_NullStr(Map<?, ?> map) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParamMapNullStr(Map<?, ?> map) {
+		Map<String, Object> parameters = new HashMap<String, Object>(14);
 		Set<?> keys = map.keySet();
 		for (Object key : keys) {
 			String value = this.getString(key.toString());
@@ -125,8 +128,13 @@ public abstract class BaseController {
 		}
 		return parameters;
 	}
-	
 
+
+	/**
+	 * 获取int 根据name
+	 * @param name
+	 * @return
+	 */
 	public int getInt(String name) {
 		return getInt(name, 0);
 	}
@@ -166,7 +174,7 @@ public abstract class BaseController {
 	 * @param key
 	 * @return String .
 	 */
-	public String getString_UrlDecode_UTF8(String key) {
+	public String getStringUrlDecodeUTF8(String key) {
 		try {
 			String string = getString(key.toString());
 			if (StringHelper.isEmpty(string)){
@@ -187,7 +195,7 @@ public abstract class BaseController {
 	 * @return String
 	 * @Autor: jason - jasonandy@hotmail.com
 	 */
-	public String getString_UrlDecode_GBK(String key) {
+	public String getStringUrlDecodeGBK(String key) {
 		try {
 			String string = getString(key.toString());
 			if (StringHelper.isEmpty(string)){
@@ -216,7 +224,7 @@ public abstract class BaseController {
 		}
 		if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
 			ipAddress = request.getRemoteAddr();
-			if (ipAddress.equals("127.0.0.1") || ipAddress.equals("0:0:0:0:0:0:0:1")) {
+			if ("127.0.0.1".equals(ipAddress)|| "0:0:0:0:0:0:0:1".equals(ipAddress)) {
 				// 根据网卡取本机配置的IP
 				InetAddress inet = null;
 				try {

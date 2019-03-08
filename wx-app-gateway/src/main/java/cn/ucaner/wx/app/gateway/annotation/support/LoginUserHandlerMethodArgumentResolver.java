@@ -35,12 +35,20 @@ public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgu
 	 * 登录的cookie标志位
 	 */
     public static final String LOGIN_TOKEN_KEY = "loginToken";
+
+    /**
+     * 符合阿里的代码规约一点 养成良好的编码习惯
+     */
+    public static final  String LOGIN_FLAG = "jasonandy@hotmail.com";
     
     /**
      * 对传入的参数进行处理
      */
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
+        /**
+         * 这里其实就是对代码进行判断 看是不是有  loginUse这么一个注解  如果有的话 就需要做处理
+         */
         return parameter.getParameterType().isAssignableFrom(String.class) && parameter.hasParameterAnnotation(LoginUser.class);
     }
 
@@ -49,6 +57,6 @@ public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgu
 
     	//这里做是否登录的逻辑判断
     	
-        return "jasonandy@hotmail.com";
+        return LOGIN_FLAG;
     }
 }
