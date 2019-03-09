@@ -1,9 +1,10 @@
 package cn.ucaner.wx.app.data.kafka.controller;
 
-import cn.ucaner.wx.app.data.kafka.producer.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import cn.ucaner.wx.app.data.kafka.producer.Producer;
 
 /**
  * @projectName：wx-app
@@ -18,13 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/kafka")
 public class SendController {
-
     @Autowired
     private Producer producer;
 
     @RequestMapping(value = "/send")
     public String send() {
         producer.send();
+
         return "{\"code\":0}";
     }
 }
+
+
