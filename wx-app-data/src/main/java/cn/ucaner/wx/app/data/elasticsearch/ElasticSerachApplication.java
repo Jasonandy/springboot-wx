@@ -22,8 +22,8 @@ public class ElasticSerachApplication {
     private static final Logger logger = LoggerFactory.getLogger(ElasticSearchConfig.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(ElasticSerachApplication.class, args);
         logger.info(" application running...");
+        SpringApplication.run(ElasticSerachApplication.class, args);
     }
 
 

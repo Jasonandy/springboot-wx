@@ -12,10 +12,16 @@ package cn.ucaner.wx.app.data.elasticsearch.model;
 */
 public class Es {
 
+    /**
+     * 索引
+     */
     private String index;
 
-
+    /**
+     * 类型
+     */
     private String type;
+
 
     public Es(String index, String type) {
         this.index = index;

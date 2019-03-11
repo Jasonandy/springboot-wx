@@ -58,8 +58,7 @@ public class ElasticSearchConfig {
                     .build();
         }
         try {
-            transportClient = new PreBuiltTransportClient(settings)
-                    .addTransportAddress(new TransportAddress(InetAddress.getByName(host), port));
+            transportClient = new PreBuiltTransportClient(settings).addTransportAddress(new TransportAddress(InetAddress.getByName(host), port));
         } catch (UnknownHostException e) {
             logger.error("创建elasticsearch客户端失败");
             e.printStackTrace();

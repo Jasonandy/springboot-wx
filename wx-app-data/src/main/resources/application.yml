@@ -27,7 +27,7 @@ spring:
       #key的解码方式
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       #value的解码方式
-      value-deserializer: org.apache.kafka.common.serialization.Str ingDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       #在/usr/local/etc/kafka/consumer.properties中有配置
       group-id: test-consumer-group
 #######################elastic search############################################################

@@ -14,11 +14,25 @@ import java.util.Date;
 */
 public class Message {
 
+    /**
+     * 消息id
+     */
     private String id;
 
+    /**
+     * 信息
+     */
     private String msg;
 
+    /**
+     * 发送时间
+     */
     private Date sendTime;
+
+    /**
+     * 发送者
+     */
+    private String sender;
 
     public String getId() {
         return id;
@@ -42,5 +56,19 @@ public class Message {
 
     public void setSendTime(Date sendTime) {
         this.sendTime = sendTime;
+    }
+
+    /**
+     * @return
+     */
+    public String getSender() {
+        return sender;
+    }
+
+    /**
+     * @param sender
+     */
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 }

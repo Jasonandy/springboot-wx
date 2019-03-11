@@ -20,16 +20,17 @@ import java.util.Optional;
 @Component
 public class Consumer {
 
-    @KafkaListener(topics = {"test"})
+    /**
+     * 监听订阅主题
+     * @param record  返回消息里面的记录
+     */
+    @KafkaListener(topics = {"DEMO"})
     public void listen(ConsumerRecord<?, ?> record){
-
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
-
         if (kafkaMessage.isPresent()) {
             Object message = kafkaMessage.get();
-            System.out.println("---->"+record);
-            System.out.println("---->"+message);
+            System.out.println("Record IS :"+record);
+            System.out.println("MEAASGE IS :"+message);
         }
-
     }
 }

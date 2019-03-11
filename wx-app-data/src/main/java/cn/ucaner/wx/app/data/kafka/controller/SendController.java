@@ -19,15 +19,23 @@ import cn.ucaner.wx.app.data.kafka.producer.Producer;
 @RestController
 @RequestMapping("/kafka")
 public class SendController {
+
+    /**
+     * 注入producer生产者
+     */
     @Autowired
     private Producer producer;
 
+    /**
+     * 发送消息
+     * @return 提示信息
+     */
     @RequestMapping(value = "/send")
     public String send() {
         producer.send();
-
-        return "{\"code\":0}";
+        return "{\"code\":SEDN MESSAGE SUCCESS}";
     }
+
 }
 
 

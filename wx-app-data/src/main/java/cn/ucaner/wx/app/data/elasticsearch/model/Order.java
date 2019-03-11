@@ -16,33 +16,59 @@ import java.util.Date;
 */
 public class Order {
 
+    /**
+     * id
+     */
     private long id;
 
+    /**
+     * 店铺ID
+     */
     @JSONField(name="store_id")
-    private int storeId;//店铺ID
+    private int storeId;
 
+    /**
+     * 店铺名字
+     */
     @JSONField(name="store_name")
-    private String storeName;//店铺名字
+    private String storeName;
 
+    /**
+     * 类目ID
+     */
     @JSONField(name="category_id")
-    private int categoryId;//类目ID
+    private int categoryId;
 
+    /**
+     * 类目名称
+     */
     @JSONField(name="category_code")
-    private String categoryCode;//类目名称
+    private String categoryCode;//
 
+    /**
+     * 货号
+     */
     @JSONField(name="product_code")
-    private String productCode;//货号
+    private String productCode;//
 
-    private int quantity;//销售件数
+    /**
+     * 销售件数
+     */
+    private int quantity;
 
-    private double amount;//销售金额
+    /**
+     * 销售金额
+     */
+    private double amount;
 
+    /**
+     * 支付日期
+     */
     @JSONField(name="pay_date")
-    private Date payDate;//
+    private Date payDate;
 
-    public Order() {
-    }
 
+    public Order() {}
 
 
     public Order(long id, int storeId, String storeName, int categoryId, String categoryCode, String productCode, int quantity, double amount, Date payDate) {

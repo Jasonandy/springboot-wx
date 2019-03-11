@@ -30,8 +30,11 @@ import java.util.*;
 @Service
 public class QueryServiceImpl implements QueryService {
 
+    /**
+     * 注入es操作对象
+     */
     @Resource
-    TransportClient transportClient;//注入es操作对象
+    TransportClient transportClient;
 
     @Override
     public List<Map<String, Object>> queryListFromES(Es es, int storeId, String storeName, String startDate, String endDate) {
@@ -58,7 +61,6 @@ public class QueryServiceImpl implements QueryService {
 
                 .execute().actionGet();
 
-
         Terms terms = sr.getAggregations().get("by_product_code");   //查询遍历第一个根据货号分组的aggregation
 
         System.out.println(terms.getBuckets().size());
@@ -75,10 +77,8 @@ public class QueryServiceImpl implements QueryService {
             objectMap.put("amount",sum1.getValue());
             list.add(objectMap);
         }
-
         long endTime = System.currentTimeMillis();
         System.out.println("查询耗时" + ( endTime - beginTime ) + "毫秒");
-
         return list;
     }
 
