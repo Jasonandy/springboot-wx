@@ -1,6 +1,15 @@
 package cn.ucaner.wx.app.data.elasticsearch.model;
 
-
+/**
+ * @ClassName：Es
+ * @Description： <p> Es  </p>
+ * @Author： - Jason
+ * @CreatTime：2019/3/11 - 8:53
+ * @Modify By：
+ * @ModifyTime： 2019/3/11
+ * @Modify marker：
+ * @version V1.0
+*/
 public class Es {
 
     private String index;

@@ -4,8 +4,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Jason
- */
+ * @ClassName：EmptyUtils
+ * @Description： <p> EmptyUtils  </p>
+ * @Author： - Jason
+ * @CreatTime：2019/3/11 - 8:54
+ * @Modify By：
+ * @ModifyTime： 2019/3/11
+ * @Modify marker：
+ * @version V1.0
+*/
 public class EmptyUtils {
 
     /**

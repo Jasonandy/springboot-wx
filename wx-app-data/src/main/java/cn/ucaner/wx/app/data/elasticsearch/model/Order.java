@@ -4,7 +4,16 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 import java.util.Date;
 
-
+/**
+ * @ClassName：Order
+ * @Description： <p> Order </p>
+ * @Author： - Jason
+ * @CreatTime：2019/3/11 - 8:53
+ * @Modify By：
+ * @ModifyTime： 2019/3/11
+ * @Modify marker：
+ * @version V1.0
+*/
 public class Order {
 
     private long id;

@@ -17,10 +17,16 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.*;
 
-
 /**
- * @author Jason
- */
+ * @ClassName：QueryServiceImpl
+ * @Description： <p> QueryServiceImpl  </p>
+ * @Author： - Jason
+ * @CreatTime：2019/3/11 - 8:55
+ * @Modify By：
+ * @ModifyTime： 2019/3/11
+ * @Modify marker：
+ * @version V1.0
+*/
 @Service
 public class QueryServiceImpl implements QueryService {
 

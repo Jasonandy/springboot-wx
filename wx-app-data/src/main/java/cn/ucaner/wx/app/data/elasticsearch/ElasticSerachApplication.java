@@ -6,10 +6,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 /**
- * @author Jason
- */
+ * @ClassName：ElasticSerachApplication
+ * @Description： <p> ElasticSerachApplication  </p>
+ * @Author： - Jason
+ * @CreatTime：2019/3/11 - 8:54
+ * @Modify By：
+ * @ModifyTime： 2019/3/11
+ * @Modify marker：
+ * @version V1.0
+*/
 @SpringBootApplication
 public class ElasticSerachApplication {
 

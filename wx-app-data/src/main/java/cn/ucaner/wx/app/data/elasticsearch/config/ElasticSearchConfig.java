@@ -22,10 +22,16 @@ import javax.annotation.PostConstruct;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-
 /**
- * @author Jason
- */
+ * @ClassName：ElasticSearchConfig
+ * @Description： <p> es配置 </p>
+ * @Author： - Jason
+ * @CreatTime：2019/3/11 - 8:52
+ * @Modify By：
+ * @ModifyTime： 2019/3/11
+ * @Modify marker：
+ * @version V1.0
+*/
 @Configuration
 public class ElasticSearchConfig {
 

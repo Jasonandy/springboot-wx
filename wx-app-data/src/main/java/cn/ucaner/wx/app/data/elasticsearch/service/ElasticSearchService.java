@@ -1,9 +1,15 @@
 package cn.ucaner.wx.app.data.elasticsearch.service;
 
-
 /**
- * @author Jason
- */
+ * @ClassName：ElasticSearchService
+ * @Description： <p> ElasticSearchService  </p>
+ * @Author： - Jason
+ * @CreatTime：2019/3/11 - 8:54
+ * @Modify By：
+ * @ModifyTime： 2019/3/11
+ * @Modify marker：
+ * @version V1.0
+*/
 public interface ElasticSearchService {
 
     /**
