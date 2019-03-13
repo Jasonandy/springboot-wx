@@ -147,8 +147,10 @@
 	        <scope>test</scope>
 	    </dependency>
 	</dependencies>
-	
+
+    <!-- 依赖模块 -->
 	<modules>
+        <module>wx-app-core</module>
 		<module>wx-app-gateway</module>
 		<module>wx-app-service</module>
 		<module>wx-app-web-boss</module>
