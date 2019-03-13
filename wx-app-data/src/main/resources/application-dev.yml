@@ -36,3 +36,8 @@ spring:
 #    port: 9300
 #    clusterName: hbi-elasticsearch
 #################################################################################################
+
+#日志记录级别
+logging:
+  config:
+    classpath: logback/logback-dev.xml

@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <!-- 父级项目 -->
     <parent>
         <artifactId>wx-app</artifactId>
@@ -19,7 +20,13 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!--PROPERTIES节点中设置docker镜像的前缀 'wx-app' -->
+        <fastjson.version>1.2.54</fastjson.version>
+
+        <elsastic.version>6.2.3</elsastic.version>
+        <elsastic.transport.version>6.2.2</elsastic.transport.version>
+        <es.transport.netty>6.3.2</es.transport.netty>
+
+        <!--PROPERTIES节点中设置docker镜像的前缀 'wx-data' -->
         <docker.image.prefix>wx-app-data</docker.image.prefix>
     </properties>
 
@@ -73,21 +80,21 @@
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>transport</artifactId>
-            <version>6.2.2</version>
+            <version>${elsastic.transport.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.54</version>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.elasticsearch.plugin/transport-netty4-client -->
         <dependency>
             <groupId>org.elasticsearch.plugin</groupId>
             <artifactId>transport-netty4-client</artifactId>
-            <version>6.3.2</version>
+            <version>${es.transport.netty}</version>
         </dependency>
 
         <dependency>

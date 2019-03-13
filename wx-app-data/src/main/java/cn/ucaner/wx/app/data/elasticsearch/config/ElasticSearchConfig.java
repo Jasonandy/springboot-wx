@@ -1,6 +1,7 @@
 package cn.ucaner.wx.app.data.elasticsearch.config;
 
 import cn.ucaner.wx.app.data.elasticsearch.util.EmptyUtils;
+import com.alibaba.fastjson.JSON;
 import org.elasticsearch.action.bulk.BackoffPolicy;
 import org.elasticsearch.action.bulk.BulkProcessor;
 import org.elasticsearch.action.bulk.BulkRequest;
@@ -37,7 +38,6 @@ public class ElasticSearchConfig {
 
     private static final Logger logger = LoggerFactory.getLogger(ElasticSearchConfig.class);
 
-
     @Value("${spring.elasticsearch.host}")
     private String host;//elasticsearch的地址
 
@@ -60,10 +60,10 @@ public class ElasticSearchConfig {
         try {
             transportClient = new PreBuiltTransportClient(settings).addTransportAddress(new TransportAddress(InetAddress.getByName(host), port));
         } catch (UnknownHostException e) {
-            logger.error("创建elasticsearch客户端失败");
+            logger.error("创建elasticsearch客户端失败!");
             e.printStackTrace();
         }
-        logger.info("创建elasticsearch客户端成功");
+        logger.info("创建elasticsearch客户端成功,Info:{}", JSON.toJSONString(transportClient));
         return transportClient;
     }
 
@@ -77,8 +77,7 @@ public class ElasticSearchConfig {
                     .build();
         }
 
-        TransportClient transportClient = new PreBuiltTransportClient(settings)
-                .addTransportAddress(new TransportAddress(InetAddress.getByName(host), port));
+        TransportClient transportClient = new PreBuiltTransportClient(settings).addTransportAddress(new TransportAddress(InetAddress.getByName(host), port));
 
         return BulkProcessor.builder(transportClient, new BulkProcessor.Listener() {
             @Override
@@ -104,6 +103,9 @@ public class ElasticSearchConfig {
                 .build();
     }
 
+    /**
+     * 被@PostConstruct修饰的方法会在构造函数之后，init()方法之前运行.
+     */
     @PostConstruct
     void init() {
         System.setProperty("es.set.netty.runtime.available.processors", "false");
