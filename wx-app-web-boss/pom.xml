@@ -119,7 +119,7 @@
         
         <!-- SpringBoot 打包插件  web[war]应用打包为exec.jar 加入application主线程的jar包 -->
         <!-- Linux 启动 nohup java -jar xxx.exec.jar &  -->
-        <!-- 后期计划结合Jenkins SonarQube 实现持续化集成环境 + 代码质量检测 by WanGuo -->
+        <!-- 后期计划结合Jenkins SonarQube 实现持续化集成环境 + 代码质量检测 by  -->
         <plugins>
         
             <plugin>
