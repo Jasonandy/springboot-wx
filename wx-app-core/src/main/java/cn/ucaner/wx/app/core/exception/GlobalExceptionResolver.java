@@ -61,6 +61,12 @@ public class GlobalExceptionResolver {
 		return map;
 	}
 
+	/**
+	 * 大家好 我这里是分支的修改  我提交修改试一试
+	 * @param request
+	 * @param e
+	 * @return
+	 */
 	@ExceptionHandler(value = RuntimeException.class)
 	@ResponseBody
 	public Map<String, String> runtimeExceptionHandler(HttpServletRequest request, RuntimeException e) {
