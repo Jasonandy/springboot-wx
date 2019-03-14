@@ -14,6 +14,11 @@ import org.springframework.boot.SpringApplication;
  */
 //@SpringBootApplication
 public class KafkaApplication {
+
+    /**
+     *  main 程序入口
+     * @param args
+     */
     public static void main(String[] args) {
         SpringApplication.run(KafkaApplication.class, args);
     }
