@@ -39,5 +39,4 @@ spring:
 
 #日志记录级别
 logging:
-  config:
-    classpath: logback/logback-dev.xml
+  config: classpath:logback/logback-dev.xml
