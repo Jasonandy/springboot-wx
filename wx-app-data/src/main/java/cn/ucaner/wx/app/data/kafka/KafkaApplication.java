@@ -16,7 +16,7 @@ import org.springframework.boot.SpringApplication;
 public class KafkaApplication {
 
     /**
-     *  main 程序入口
+     *  main 程序入口  - thanks github
      * @param args
      */
     public static void main(String[] args) {
