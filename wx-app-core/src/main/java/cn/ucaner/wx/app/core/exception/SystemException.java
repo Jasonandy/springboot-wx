@@ -24,18 +24,34 @@ public class SystemException extends RuntimeException {
 	
 	private static final long serialVersionUID = 1401593546385403720L;
 
+	/**
+	 * system 系统异常
+	 */
 	public SystemException() {
 		super();
 	}
 
+	/**
+	 * 系统异常
+	 * @param message 异常信息
+	 */
 	public SystemException(String message) {
 		super(message);
 	}
 
+	/**
+	 * 系统异常
+	 * @param cause 异常语句
+	 */
 	public SystemException(Throwable cause) {
 		super(cause);
 	}
 
+	/**
+	 * 系统异常
+	 * @param message 异常信息
+	 * @param cause   异常语句
+	 */
 	public SystemException(String message, Throwable cause) {
 		super(message, cause);
 	}

@@ -16,14 +16,14 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 /**
 * @Package：cn.ucaner.wx.app.core.exception   
 * @ClassName：GlobalExceptionResolver   
-* @Description：   <p>  全局异常处理器</p>
+* @Description：   <p>  全局异常处理器 https://www.cnblogs.com/magicalSam/p/7198420.html </p>
 * @Author： - Jason   
 * @CreatTime：2018年10月23日 下午7:33:10   
 * @Modify By：   
@@ -34,6 +34,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice 
 public class GlobalExceptionResolver {
 
+	/**
+	 * 应用到所有@RequestMapping注解方法，在其执行之前初始化数据绑定器
+	 * @param binder
+	 */
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {}
+
+
+	/**
+	 * 把值绑定到Model中，使全局@RequestMapping可以获取到该值
+	 * @param model
+	 */
+	@ModelAttribute
+	public void addAttributes(Model model) {
+		model.addAttribute("author", "Jason");
+	}
+
+
 	@ExceptionHandler(value = Exception.class)
 	@ResponseBody
 	public Map<String, String> exceptionHandler(HttpServletRequest request, Exception e) {
@@ -43,6 +61,12 @@ public class GlobalExceptionResolver {
 		return map;
 	}
 
+	/**
+	 * 大家好 我这里是分支的修改  我提交修改试一试 大家好 我从分支good 到主干 master 了
+	 * @param request
+	 * @param e
+	 * @return
+	 */
 	@ExceptionHandler(value = RuntimeException.class)
 	@ResponseBody
 	public Map<String, String> runtimeExceptionHandler(HttpServletRequest request, RuntimeException e) {
