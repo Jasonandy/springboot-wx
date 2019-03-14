@@ -1,7 +1,6 @@
 package cn.ucaner.wx.app.data.kafka;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @projectName：wx-app
@@ -13,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @ModifyTime： 2019/3/8
  * @Modify marker：
  */
-@SpringBootApplication
+//@SpringBootApplication
 public class KafkaApplication {
     public static void main(String[] args) {
         SpringApplication.run(KafkaApplication.class, args);
