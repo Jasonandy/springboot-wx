@@ -1,0 +1,4 @@
+################################ spring logging config start ###########################################################
+logging:
+  config: classpath:config/logback/logback-dev.xml
+################################ spring logging config end #############################################################

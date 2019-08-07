@@ -155,5 +155,6 @@
 		<module>wx-app-service</module>
 		<module>wx-app-web-boss</module>
         <module>wx-app-data</module>
+        <module>wx-chat-bot</module>
     </modules>
 </project>

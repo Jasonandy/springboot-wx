@@ -2,5 +2,5 @@
 /.settings/
 /.project
 .idea/
-/.idea/
+*.iml
 ##################Ignore by Jason #########
